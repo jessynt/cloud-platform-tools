@@ -1,1 +1,9 @@
 # cloud-platform-tools
+
+environment variables:
+
+- KUBE_ENV_FOO_NAME
+- KUBE_ENV_FOO_NAMESPACE
+- KUBE_ENV_FOO_HOST
+- KUBE_ENV_FOO_TOKEN
+- KUBE_ENV_FOO_CACERT
