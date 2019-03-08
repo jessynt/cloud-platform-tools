@@ -21,7 +21,7 @@ for e in $(env | grep "${ENV_INFO_PREFIX}" | sed -E 's/^'"${ENV_INFO_PREFIX}"'_(
   _ev="${ENV_INFO_PREFIX}_${e}_CACERT"
   if [[ -z "${!_ev}" ]];then
     kubectl config set-cluster "${_ename}" \
-      --insecure-skip-tls-verify
+      --insecure-skip-tls-verify \
       --server="${_ehost}"
  else
     _ecacert=".${e}_ca.crt"
