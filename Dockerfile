@@ -1,4 +1,4 @@
-FROM alpine:3.7
+FROM docker:18.05.0-ce-git
 
 ENV \
   CLOUD_SDK_VERSION=239.0.0 \
