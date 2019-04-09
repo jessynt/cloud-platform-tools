@@ -1,10 +1,11 @@
 FROM docker:18.05.0-ce-git
 
 ENV \
-  CLOUD_SDK_VERSION=239.0.0 \
+  CLOUD_SDK_VERSION=241.0.0 \
   HELM_VERSION=2.13.0 \
   KUBECTL_VERSION=1.13.3 \
-  TERRAFORM_VERSION=0.11.11
+  TERRAFORM_VERSION=0.11.11 \
+  GHR_VERSION=0.12.0
 
 RUN \
   apk add \
@@ -30,6 +31,7 @@ RUN \
   && /usr/local/gcloud/google-cloud-sdk/install.sh \
   && curl -sLo /usr/local/bin/kubectl https://storage.googleapis.com/kubernetes-release/release/v${KUBECTL_VERSION}/bin/linux/amd64/kubectl \
   && curl -sL https://storage.googleapis.com/kubernetes-helm/helm-v${HELM_VERSION}-linux-amd64.tar.gz | tar -xzC /usr/local/bin --strip-components 1 linux-amd64/helm \
+  && curl -sL https://github.com/tcnksm/ghr/releases/download/v${GHR_VERSION}/ghr_v${GHR_VERSION}_linux_amd64.tar.gz | tar -xzC /usr/local/bin --strip-components 1 ghr_v${GHR_VERSION}_linux_amd64/ghr \
   && curl -sL https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip | unzip -d /usr/local/bin - \
   && git clone https://github.com/AGWA/git-crypt.git \
   && cd git-crypt && make && make install && cd - && rm -rf git-crypt \
