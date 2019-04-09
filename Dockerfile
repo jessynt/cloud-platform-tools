@@ -23,6 +23,7 @@ RUN \
     openssl \
     openssl-dev \
     python3 \
+    zip \
   && rm -rf /var/cache/apk/* \
   && pip3 install --upgrade pip \
   && curl https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-${CLOUD_SDK_VERSION}-linux-x86_64.tar.gz > /tmp/google-cloud-sdk.tar.gz \
